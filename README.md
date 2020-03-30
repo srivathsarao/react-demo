@@ -1,68 +1,91 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Learnt React in a day (I know Angular)
+First step:
+	Googled all the concepts of React
+		(https://en.wikipedia.org/wiki/React_(web_framework), 
+		https://www.freecodecamp.org/news/all-the-fundamental-react-js-concepts-jammed-into-this-single-medium-article-c83f9b53eac2/)
+		Redux (Similar to NgRx)
+		JSX (Similar to templates)
+			Can have nested elements
+			Expressions can be used in {}. Example {10+1}. Can be conditional.
+		Props
+		React router for routing the pages
+		Virtual Dom (Angular uses incremental dom)
+		Components can be defined in 3 ways
+			Components
+				(ReactDOM.render(<Greeter greeting="Hello World!" />, document.getElementById('myReactApp'));)
+			Functional Components 
+				(const Greeting = (props) => <div>Hello, {props.name}!</div>;)
+			Class-based components (Similar to angular compoennts)
+				class ParentComponent extends React.Component {
+				  state = { color: 'green' };
+				  render() {
+					return (
+					  <ChildComponent color={this.state.color} />
+					);
+				  }
+				}
 
-## Available Scripts
+LifeCycle methods
+	shouldComponentUpdate allows the developer to prevent unnecessary re-rendering of a component by returning false if a render is not required.
+	componentDidMount. (Similar to ngAfterViewInit?)
+	componentWillUnmount (Similar to ngOnDestroy?)
+	render (Similar to ngOnInit?)
 
-In the project directory, you can run:
+Hooks
+	These are the functions with the name starting with use 
+	(https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/, https://reactjs.org/docs/hooks-intro.html)
+	They are used to put and get state without having to create class component.
+	const [count, setCount] = useState(0);
+	I can use setCount to set the state and count to get the state.
+	const [message, setMessage] = useState("");
+	Similarly message and set message.
+	useEffect is another hook which lets us specify the effect of a function call (This explains clearly).
+	We can use custom hooks as well.
+	
+With these concepts in mind, I will start with trying to create new project.
+	Creating react app (https://github.com/facebook/create-react-app)
+	npx create-react-app react-demo
+	
+	Looked into package.json
+	
+	It has very few dependencies.
+	    "@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.5.0",
+		"@testing-library/user-event": "^7.2.1",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-scripts": "3.4.1"
+	
+	When I looked into the react-scripts github repo. I have found out that it has all the required depencnies in it's package.json like webpack, babel and other things.
+	
+	The above command also loaded the dependencies to node_modules.
+	
+	ran the application using npm start. Hurrey it started (http://localhost:3000/).
+	
+Next steps
+	Exporing the common libraries.
+	http library:
+		axios, superagent and fetch are the common libraries.
+		using axios since it has highest number of uages.
+	
+	State management
+		Redux
+	
+	https://brainhub.eu/blog/react-libraries/
+	
+	creat-react-app does not contain the redux and axios. I will be manually installing them.
+	
+	npm install redux
+	npm install axios
+	
+	Installed react developer tools in Chrome.
+	
+Getting hands dirty
+	Things I need
+	A backend server saving the data
+	A screen displaying the data
+	A form to submit the data to server
+	Frontend screen and routing to different screens.
+	
+	Opened the code in Intellij
 
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
